@@ -1,27 +1,29 @@
 var demo = {};
 demo.Game0 = function(){};
 var ghost;
+//var brick;
 var speed = 10;
 demo.Game0.prototype = {
 	
     preload: function(){
 		game.load.image('back', 'assets/Background.png');
-    game.load.spritesheet('ghost', 'assets/ghost.png',278,225);
-        
+        game.load.spritesheet('ghost', 'assets/ghost.png',278,225);
+        game.load.image('platform1', 'assets/Brick.png' )
 	},
 
 	create: function(){        
 //        game.world.setBounds(0,0, 2813, 1000);
 //        game.physics.startSystem(Phaser.Physics.ARCADE);
-        
+        this.brick = this.add.physicsGroup();
         var back = game.add.sprite(0, 0, 'back');
-        
+        var platform1 = game.add.image(0,0, 'platform1')
+        platform1.scale.setTo(0.2,0.2)
         back.height = game.height;
         back.width = game.width;
         ghost = game.add.sprite(0,0, 'ghost');
 //        ghost.animations.add('walk',[0,1,2]);
 //        adam.anchor.setTo(0.5, 0.5);
-        ghost.scale.setTo(0.3, 0.3);
+        ghost.scale.setTo(0.2, 0.2);
 //        game.physics.enable(adam);
 //        adam.body.collideWorldBounds = true;
 //        game.camera.follow(adam);
