@@ -1,7 +1,7 @@
 var demo = {};
 demo.Game0 = function(){};
 var ghost;
-var speed = 10;
+var speed = 6;
 demo.Game0.prototype = {
 	
     preload: function(){
