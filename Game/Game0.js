@@ -7,9 +7,15 @@ var speed = 2;
 demo.Game0.prototype = {
 	
     preload: function(){
+<<<<<<< HEAD
 		game.load.image('back', 'assets/Background.png');
         game.load.spritesheet('ghost', 'assets/ghost.png',287,229);
         game.load.image('platform1', 'assets/Brick.png' )
+=======
+		game.load.image('back', 'assets/citybackground.jpg');
+    game.load.spritesheet('ghost', 'assets/ghost.png',278,225);
+        
+>>>>>>> origin/master
 	},
 
 	create: function(){        
