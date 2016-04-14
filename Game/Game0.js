@@ -49,10 +49,10 @@ demo.Game0.prototype = {
     }
  //        Create a coin inside of the 'stars' group
 //        var coin = coins.create(530, 20, 'coin');
-//        coin.body.gravity.y = 300;
+        coin.body.gravity.y = 300;
 //        
 //        var coin = coins.create(530, 220, 'coin');
-//        coin.body.gravity.y = 300;
+        coin.body.gravity.y = 300;
 //        var coin = coins.create(430, 320, 'coin');
 //        coin.body.gravity.y = 300;
 //        var coin = coins.create(130, 420, 'coin');
