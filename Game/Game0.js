@@ -47,7 +47,7 @@ demo.Game0.prototype = {
         //  This just gives each star a slightly random bounce value
         coin.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
-        //  Create a coin inside of the 'stars' group
+ //        Create a coin inside of the 'stars' group
 //        var coin = coins.create(530, 20, 'coin');
 //        coin.body.gravity.y = 300;
 //        
