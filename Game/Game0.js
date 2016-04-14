@@ -15,7 +15,7 @@ demo.Game0.prototype = {
 	
     preload: function(){
         game.load.image('bullet', 'assets/bullet.png');
-        game.load.image('back', 'assets/citybackground.jpg');
+        game.load.image('back', 'assets/download.jpeg',0,0);
         game.load.spritesheet('ghost', 'assets/ghost.png',278,225);
         game.load.image('ground', 'assets/platform.png', 320, 32);
         game.load.image('ladder', 'assets/mladder.png');
@@ -73,7 +73,7 @@ demo.Game0.prototype = {
 //        
 //         var coin = coins.create(403, 920, 'coin');
 //        coin.body.gravity.y = 300;
-//        coins.callAll('animations.add', 'animations', 'move', [0,1,2,3,4,5,6,7,8,9], 10, true);
+        coins.callAll('animations.add', 'animations', 'move', [0,1,2,3,4,5,6,7,8,9], 10, true);
 //        coins.callAll('animations.play', 'animations', 'move');
 ////        <-------------enemies------------>
         enemies = game.add.group();
@@ -174,7 +174,7 @@ demo.Game0.prototype = {
     update: function(){
         game.physics.arcade.collide(coins, platforms);
         game.physics.arcade.collide(enemies, platforms);
-        game.physics.arcade.collide(ghost, enemies);
+//        game.physics.arcade.collide(ghost, enemies);
         game.physics.arcade.collide(ghost, platforms);
         
 //        game.physics.arcade.overlap(ghost, coins, collectCoin, null, this);
