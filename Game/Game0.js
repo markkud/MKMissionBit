@@ -33,7 +33,7 @@ demo.Game0.prototype = {
         back.height = game.height;
         back.width = game.width;
         
-//        ---------coins------------
+//        ---------coins-------------
         coins = game.add.group();
         coins.enableBody = true;
         for (var i = 0; i < 12; i++)
