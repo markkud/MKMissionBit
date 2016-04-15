@@ -2,12 +2,12 @@ var demo = {};
 demo.Game0 = function(){};
 var ghost;
 var cursors;
-var liftSpeed = 6;
+var liftSpeed = 10;
 var speed = 10;
 var platforms;
 var ladders;
 var bullets;
-var bulletTime = 0;
+var bulletTime = 6;
 var fireButton;
 var enemies;
 var coins;
@@ -33,7 +33,7 @@ demo.Game0.prototype = {
         back.height = game.height;
         back.width = game.width;
         
-//        ---------coins------------
+//        ---------coins-------------
         coins = game.add.group();
         coins.enableBody = true;
         for (var i = 0; i < 12; i++)
@@ -47,7 +47,7 @@ demo.Game0.prototype = {
         //  This just gives each star a slightly random bounce value
         coin.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
-        //  Create a coin inside of the 'stars' group
+ //        Create a coin inside of the 'stars' group
 //        var coin = coins.create(530, 20, 'coin');
 //        coin.body.gravity.y = 300;
 //        
