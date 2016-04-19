@@ -1,22 +1,22 @@
 var demo = {};
 demo.Game0 = function(){};
-var ghost;
-var cursors;
-var liftSpeed = 10;
-var speed = 10;
-var platforms;
-var ladders;
-var bullets;
-var bulletTime = 6;
-var fireButton;
-var enemies;
-var coins;
+//var ghost;
+//var cursors;
+//var liftSpeed = 6;
+//var speed = 10;
+//var platforms;
+//var ladders;
+//var bullets;
+//var bulletTime = 0;
+//var fireButton;
+//var enemies;
+//var coins;
 demo.Game0.prototype = {
 	
     preload: function(){
         game.load.image('bullet', 'assets/bullet.png');
         game.load.image('back', 'assets/download.jpeg',0,0);
-        game.load.spritesheet('ghost', 'assets/ghost.png',278,225);
+        game.load.spritesheet('ghost', 'assets/ghost.png',285,210);
         game.load.image('ground', 'assets/platform.png', 320, 32);
         game.load.image('ladder', 'assets/mladder.png');
         game.load.spritesheet('enemy', 'assets/enemy.png', 935, 1204 );
@@ -33,7 +33,7 @@ demo.Game0.prototype = {
         back.height = game.height;
         back.width = game.width;
         
-//        ---------coins-------------
+//        ---------coins------------
         coins = game.add.group();
         coins.enableBody = true;
         for (var i = 0; i < 12; i++)
@@ -47,35 +47,9 @@ demo.Game0.prototype = {
         //  This just gives each star a slightly random bounce value
         coin.body.bounce.y = 0.7 + Math.random() * 0.2;
     }
- //        Create a coin inside of the 'stars' group
-//        var coin = coins.create(530, 20, 'coin');
-//        coin.body.gravity.y = 300;
-//        
-//        var coin = coins.create(530, 220, 'coin');
-//        coin.body.gravity.y = 300;
-//        var coin = coins.create(430, 320, 'coin');
-//        coin.body.gravity.y = 300;
-//        var coin = coins.create(130, 420, 'coin');
-//        coin.body.gravity.y = 300;
-//        var coin = coins.create(420, 720, 'coin');
-//        coin.body.gravity.y = 300;
-//        var coin = coins.create(230, 620, 'coin');
-//        coin.body.gravity.y = 300;
-//        
-//        var coin = coins.create(630, 720, 'coin');
-//        coin.body.gravity.y = 300;
-//
-//        var coin = coins.create(130, 0, 'coin');
-//        coin.body.gravity.y = 300;
-//        
-//        var coin = coins.create(130, 920, 'coin');
-//        coin.body.gravity.y = 300;
-//        
-//         var coin = coins.create(403, 920, 'coin');
-//        coin.body.gravity.y = 300;
-//        coins.callAll('animations.add', 'animations', 'move', [0,1,2,3,4,5,6,7,8,9], 10, true);
-//        coins.callAll('animations.play', 'animations', 'move');
-////        <-------------enemies------------>
+        coins.callAll('animations.add', 'animations', 'move', [0,1,2,3,4,5,6,7,8,9], 10, true);
+        coins.callAll('animations.play', 'animations', 'move');
+//////        <-------------enemies------------>
         enemies = game.add.group();
         enemies.enableBody = true;
 //        enemies.animations.add('react', [0, 1, 2]);
@@ -93,8 +67,8 @@ demo.Game0.prototype = {
 
     //  And play them
     enemies.callAll('animations.play', 'animations', 'behave');
-        
-//        <-------------ladders------------->
+//        
+////        <-------------ladders------------->
         ladders = game.add.group();
         var ladder = ladders.create(700,175, 'ladder');
         ladder.scale.setTo(0.43,0.3);
@@ -110,11 +84,11 @@ demo.Game0.prototype = {
         
         var ladder = ladders.create(700,875, 'ladder');
         ladder.scale.setTo(0.43,0.32);
-     
-        
-        
-//        <--------Ledges-------->
-        
+//     
+//        
+//        
+////        <--------Ledges-------->
+//        
         platforms = game.add.group();
         
         platforms.enableBody = true;
@@ -173,77 +147,77 @@ demo.Game0.prototype = {
 
     update: function(){
         game.physics.arcade.collide(coins, platforms);
-        game.physics.arcade.collide(enemies, platforms);
-//        game.physics.arcade.collide(ghost, enemies);
+//        game.physics.arcade.collide(enemies, platforms);
+////        game.physics.arcade.collide(ghost, enemies);
         game.physics.arcade.collide(ghost, platforms);
-        
-//        game.physics.arcade.overlap(ghost, coins, collectCoin, null, this);
-//    if(checkOverlap(coins, ghost)){
-//        coins.kill();
-//    }    
-        
-         ghost.body.velocity.x = 0;
-
-    if (cursors.left.isDown)
-    {
-        //  Move to the left
-        ghost.body.velocity.x = -150;
-
-        ghost.animations.play('walk', 10, true);
-    }
-    else if (cursors.right.isDown)
-    {
-        //  Move to the right
-        ghost.body.velocity.x = 150;
-
-        ghost.animations.play('walk', 10 , true);
-    }
-    else
-    {
-        //  Stand still
-        ghost.animations.stop();
-
-        ghost.frame = 0;
-    }
-    //  Firing?
-    if (fireButton.isDown)
-    {
-        
-    }
-
-//    if (game.time.now > firingTimer)
-//    {
-//        enemyFires();
-//    }
-
-    //  Run collision
-//    game.physics.arcade.overlap(bullets, aliens, collisionHandler, null, this);
-//    game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
-    if(cursors.down.isDown){
-        ghost.body.velocity.y = 200;
-    }
-    //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown)
-    {
-        ghost.body.velocity.y = -200;
-    }
-
-},
-
-//    
-//    collectCoin: function(ghost, coin){
-//        coin.kill();
 //        
-//        score += 10;
-//        scoreText.text = 'Score: ' + score;
+////        game.physics.arcade.overlap(ghost, coins, collectCoin, null, this);
+////    if(checkOverlap(coins, ghost)){
+////        coins.kill();
+////    }    
+//        
+//         ghost.body.velocity.x = 0;
+//
+//    if (cursors.left.isDown)
+//    {
+//        //  Move to the left
+//        ghost.body.velocity.x = -150;
+//
+//        ghost.animations.play('walk', 10, true);
 //    }
-//checkOverlap: function(spriteA, spriteB) {
+//    else if (cursors.right.isDown)
+//    {
+//        //  Move to the right
+//        ghost.body.velocity.x = 150;
 //
-//    var boundsA = spriteA.getBounds();
-//    var boundsB = spriteB.getBounds();
+//        ghost.animations.play('walk', 10 , true);
+//    }
+//    else
+//    {
+//        //  Stand still
+//        ghost.animations.stop();
 //
-//    return Phaser.Rectangle.intersects(boundsA, boundsB);
+//        ghost.frame = 0;
+//    }
+//    //  Firing?
+//    if (fireButton.isDown)
+//    {
+//        
+//    }
 //
-//}
+////    if (game.time.now > firingTimer)
+////    {
+////        enemyFires();
+////    }
+//
+//    //  Run collision
+////    game.physics.arcade.overlap(bullets, aliens, collisionHandler, null, this);
+////    game.physics.arcade.overlap(enemyBullets, player, enemyHitsPlayer, null, this);
+//    if(cursors.down.isDown){
+//        ghost.body.velocity.y = 200;
+//    }
+//    //  Allow the player to jump if they are touching the ground.
+//    if (cursors.up.isDown)
+//    {
+//        ghost.body.velocity.y = -200;
+//    }
+//
+//},
+//
+////    
+////    collectCoin: function(ghost, coin){
+////        coin.kill();
+////        
+////        score += 10;
+////        scoreText.text = 'Score: ' + score;
+////    }
+////checkOverlap: function(spriteA, spriteB) {
+////
+////    var boundsA = spriteA.getBounds();
+////    var boundsB = spriteB.getBounds();
+////
+////    return Phaser.Rectangle.intersects(boundsA, boundsB);
+////
+}
   
 };
